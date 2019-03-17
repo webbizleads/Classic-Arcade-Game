@@ -33,6 +33,7 @@ collide with the vehicles.Player will win when he successfully crossed the road.
   <li>Display remaining life</li>
   <li>Losing life</li>
   <li>Final score board</li>
+  <li>Running Game</li>
 </ul> 
 
 # Screenshots
@@ -65,7 +66,9 @@ collide with the vehicles.Player will win when he successfully crossed the road.
 
 ![alt text](https://github.com/webbizleads/Classic-Arcade-Game/blob/master/Classic%20Arcade%20Game/img/winning.JPG)
 
+<b>state 8 :</b> Running Game
 
+![alt text](https://github.com/webbizleads/Classic-Arcade-Game/blob/master/Classic%20Arcade%20Game/img/running%20game.JPG)
 
 # Build In
 

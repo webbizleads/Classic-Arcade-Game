@@ -84,11 +84,13 @@ Font Awesome is a font and icon toolkit based on CSS and LESS
 
 # Features
 
-List of features ready for future development
-Increse the size of the game display
-Adding collectable objects in the game
-Add newly designed game levels in water 
-Adding real time user experience 
+<ul>
+  <li>List of features ready for future development</li>
+  <li>Increse the size of the game display</li>
+  <li>Adding collectable objects in the game</li>
+  <li>Add newly designed game levels in water</li>
+  <li>Adding real time user experience </li>
+</ul>
 
 # Inspiration
   

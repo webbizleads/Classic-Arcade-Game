@@ -65,12 +65,22 @@ body {
 }
 
 
+/**gemstone style**/
+.gemstone {
+    width: 50px;
+    height: 75px;
+    margin-top: -30px;
+}
+
+
+
 /**player selection animation**/
 .imgselect:hover {
     transform: scale(2, 2);
     -webkit-transform: scale(2, 2);
     -moz-transform: scale(2, 2);
-    margin-bottom: 20px;    
+    margin-bottom: 20px;
+    cursor: pointer;    
 }
 
 

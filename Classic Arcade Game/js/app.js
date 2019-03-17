@@ -100,8 +100,13 @@ class Player {
         this.hitOne = 68; //hitting position of enemy and player
         this.hitTwo = 38; //hitting position of enemy and player
 
+        this.gemStoneone = '<img src="img/blue.png" alt="blue gem" class="gemstone">'; //gem 1 
+        this.gemStonetwo = '<img src="img/green.png" alt="green gem" class="gemstone">'; //gem 2
+        this.gemStonethree = '<img src="img/orange.png" alt="orange gem" class="gemstone">'; //gem 3
+
         this.heart = document.querySelector('.heart').childNodes; //DOM to access life of the player initial 3 hearts.
-        this.highScore = document.querySelector('.highscore'); //highscore is used to display player score in popup final stage of the game.
+        this.highScore = document.querySelector('.highscore'); //highscore is used to display player score in popup at the final stage of the game.
+        this.gem = document.querySelector('.gem'); //gem is used to display player awarded gem in popup at the final stage of the game.
         this.playerCollection = document.querySelectorAll('.imgselect'); //DOM to access different players selection at initial stage of the game.   
         this.alertmessage = document.querySelector('.alertmsg'); //alertmsg "you WON" or "you LOSE" is display in popup at final stage of the game.
         
@@ -278,11 +283,22 @@ class Player {
     finalDisplay() {
         modal.style.display = "block"; //display score popup
         this.highScore.innerHTML = this.score; //insert score in popup
+
+        if (this.score === 100) { //display 3 gemstone
+            this.gem.innerHTML = this.gemStoneone + this.gemStonetwo + this.gemStonethree;                  
+        } else if (this.score === 75) { //display 2 gemstone
+            this.gem.innerHTML = this.gemStoneone + this.gemStonetwo;                  
+        } else if (this.score === 50) { //display 1 gemstone
+            this.gem.innerHTML = this.gemStoneone;                  
+        } else {
+            this.gem.innerText = 'Sorry, No Gem'; //no gem
+        }   
+ 
         this.check += 1; //check ensures player not able to move after score popup displayed,it is used in handleInput() method to restrict keyboard moves.
         //score < 50 alert msg in popup "LOSE" 
         //score > 50 alert msg in popup "WON"
         (this.score < 50) ? this.alertmessage.innerText = 'SORRY YOU LOSE' : this.alertmessage.innerText = 'YOU WON !!!';
-
+        
     }
 
 

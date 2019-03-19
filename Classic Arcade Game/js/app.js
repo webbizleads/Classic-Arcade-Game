@@ -1,32 +1,34 @@
 
 /**
-* @description Enemy constructor function is able set values for vehicle objects. 
+* @description Enemy class is able set values for vehicle objects. 
 */
-var Enemy = function (x, y) {
+class Enemy {
 
-    this.x = x; //set x-axis for each vehicle objects.
-    this.y = y; //set y-axis for each vehicle objects.
-    this.vehicleMove = 1; //initial speed factors of vehicle objects.
-    this.randomXaxis = 0; //boundary check for each vehicle objects to cross the boundary  
+    constructor(x, y, z) {
+        this.x = x; //set x-axis for each vehicle objects.
+        this.y = y; //set y-axis for each vehicle objects.
+        this.index = z; //index value of vehicle objects.
+        this.vehicleMove = 1; //initial speed factors of vehicle objects.
+        this.randomXaxis = 0; //boundary check for each vehicle objects to cross the boundary  
 
-    this.sprite = ['img/car-one.png',
-                   'img/car-two.png',
-                   'img/fire-engine.png',
-                   'img/bus-one.png',
-                   'img/truck.png',
-                   'img/bus-three.png',
-                   'img/auto.png',
-                   'img/cycle.png',
-                   'img/ambulance.png'
-    ]; //list of enemy vehicles which used in render prototype.
+        this.sprite = ['img/car-one.png',
+                       'img/car-two.png',
+                       'img/fire-engine.png',
+                       'img/bus-one.png',
+                       'img/truck.png',
+                       'img/bus-three.png',
+                       'img/auto.png',
+                       'img/cycle.png',
+                       'img/ambulance.png'
+        ]; //list of enemy vehicles which used in render method.
 
-};
+    }
 
 
-/**
-* @description prototype to update x-axis by multiply with dt parameters to each vehicle objects. 
-*/
-Enemy.prototype.update = function (dt) {
+    /**
+    * @description update method to update x-axis by multiply with dt parameters to each vehicle objects. 
+    */
+    update(dt) {
 
     this.randomXaxis = Math.floor(Math.random() * (600) + 600); //randomly generating value greater than canvas width.
 
@@ -46,18 +48,20 @@ Enemy.prototype.update = function (dt) {
 
 
 /**
-* @description prototype to render vehicle objects
-* @array allEnemies array contains list of vehicle objects 
-* co-ordination position of each vehicle objects can be find using allEnemies[].x and allEnemies[].y  
-* @array this.sprite = [] which present in constructor function contains list of vehicles to draw in to the canvas. 
+* @description render method is used to render vehicle objects using x-axis,y-axis,index value carry by vehicle objects.
+* -By using the index value is able to render different vehicle objects.     
+* @property this.sprite[this.index] which contains index value of vehicle object.  
 */
-Enemy.prototype.render = function () {
+render() {
 
-    for (let i = 0; i < allEnemies.length; i++) { //for loop to iterate allEnemies array.
-        ctx.drawImage(Resources.get(this.sprite[i]), allEnemies[i].x, allEnemies[i].y); //draw each and every vehicle to the canvas.
-    }
+    ctx.drawImage(Resources.get(this.sprite[this.index]),this.x,this.y); //draw each and every vehicle to the canvas.
 
 }
+
+
+};
+
+
 
 
 
@@ -174,9 +178,7 @@ class Player {
     * @description checkcollisions method is used to analyze two things. 
     * 1.help player to avoid getting out of the game board.      
     * @property axisXstart,axisXend,axisYstart,axisYend sets boundary for the player to circulate inside the boundary. 
-    * 
     * 2.check collisions between vehicles and players
-    * 
     */
     checkCollisions() {
 
@@ -191,11 +193,9 @@ class Player {
             this.x = this.previousXaxis; //previous location of x-axis is set to current location of x-axis.
             this.y = this.previousYaxis; //previous location of y-axis is set to current location of y-axis.
 
-        } else { //otherwise,player reach otherside of the road then scoreboard popup in 1000ms to display score. 
+        } else { //otherwise,player reach otherside of the road then scoreboard popup to display score after 1000ms. 
 
-            setTimeout(function () {
-                player.scoreBoard(); //player scoreBoard() method called.
-            }, 1000);
+            setTimeout(this.scoreBoard.bind(this), 1000); //player scoreBoard() method called.
 
         }
         
@@ -207,8 +207,8 @@ class Player {
                 ((vehicleEight.x >= this.x - this.hitTwo) && (vehicleEight.x <= this.x + this.hitTwo)) ||
                 ((vehicleSeven.x >= this.x - this.hitTwo) && (vehicleSeven.x <= this.x + this.hitTwo))) {
 
-                player.startingPosition(); //reset player to initial position
-                player.scoreBoard(); //calculate score
+                this.startingPosition(); //reset player to initial position
+                this.scoreBoard(); //calculate score
 
             }
 
@@ -218,8 +218,8 @@ class Player {
                 ((vehicleFive.x >= this.x - this.hitOne) && (vehicleFive.x <= this.x + this.hitOne)) ||
                 ((vehicleSix.x >= this.x - this.hitOne) && (vehicleSix.x <= this.x + this.hitOne))) {
 
-                player.startingPosition(); //reset player to initial position
-                player.scoreBoard(); //calculate score
+                this.startingPosition(); //reset player to initial position
+                this.scoreBoard(); //calculate score
 
             }
           
@@ -229,8 +229,8 @@ class Player {
                 ((vehicleTwo.x >= this.x - this.hitOne) && (vehicleTwo.x <= this.x + this.hitOne)) ||
                 ((vehicleThree.x >= this.x - this.hitOne) && (vehicleThree.x <= this.x + this.hitOne))) {
 
-                player.startingPosition(); //reset player to initial position
-                player.scoreBoard(); //calculate score
+                this.startingPosition(); //reset player to initial position
+                this.scoreBoard(); //calculate score
 
             }
 
@@ -255,7 +255,7 @@ class Player {
     */
     scoreBoard() { //invoked by collisionCheck() method, each time the player collide with vehicle objects.
 
-        (this.life === 0 || this.y === this.axisYstart) ? player.finalDisplay() : player.scoreCalculation(); 
+        (this.life === 0 || this.y === this.axisYstart) ? this.finalDisplay() : this.scoreCalculation(); 
         //else scoreCalculation() method called every time player collide with vehicle objects to calculate score and life. 
     }
 
@@ -281,6 +281,7 @@ class Player {
     * @description finalDisplay() method called by scoreBoard() method if the player reach destination or life = 0 suituations.
     */
     finalDisplay() {
+           
         modal.style.display = "block"; //display score popup
         this.highScore.innerHTML = this.score; //insert score in popup
 
@@ -298,9 +299,8 @@ class Player {
         //score < 50 alert msg in popup "LOSE" 
         //score > 50 alert msg in popup "WON"
         (this.score < 50) ? this.alertmessage.innerText = 'SORRY YOU LOSE' : this.alertmessage.innerText = 'YOU WON !!!';
-        
-    }
 
+    }
 
 };
 
@@ -312,15 +312,15 @@ class Player {
 // -set start position to -200,when the object goes out of set boundary randomly after 505 width of the canvas.
 //enemy render function is reder every object with different in speed and x-axis at the canvas. 
 // using game loop engine the process continues to change position,speed and finally render on the screen.
-let vehicleOne = new Enemy(0, 95); //(width,height) of vehicleOne object
-let vehicleTwo = new Enemy(200, 80); //(width,height) of vehicleTwo object
-let vehicleThree = new Enemy(400, 90); //(width,height) of vehicleThree object
-let vehicleFour = new Enemy(100, 170); //(width,height) of vehicleFour object
-let vehicleFive = new Enemy(300, 165); //(width,height) of vehicleFive object
-let vehicleSix = new Enemy(500, 170); //(width,height) of vehicleSix object
-let vehicleSeven = new Enemy(50, 265); //(width,height) of vehicleSeven object
-let vehicleEight = new Enemy(150, 320); //(width,height) of vehicleEight object
-let vehicleNine = new Enemy(250, 260); //(width,height) of vehicleNine object
+let vehicleOne = new Enemy(0,95,0); //(width,height,indexvalue) of vehicleOne object
+let vehicleTwo = new Enemy(200,80,1); //(width,height,indexvalue) of vehicleTwo object
+let vehicleThree = new Enemy(400,90,2); //(width,height,indexvalue) of vehicleThree object
+let vehicleFour = new Enemy(100,170,3); //(width,height,indexvalue) of vehicleFour object
+let vehicleFive = new Enemy(300,165,4); //(width,height,indexvalue) of vehicleFive object
+let vehicleSix = new Enemy(500,170,5); //(width,height,indexvalue) of vehicleSix object
+let vehicleSeven = new Enemy(50,265,6); //(width,height,indexvalue) of vehicleSeven object
+let vehicleEight = new Enemy(150,320,7); //(width,height,indexvalue) of vehicleEight object
+let vehicleNine = new Enemy(250,260,8); //(width,height,indexvalue) of vehicleNine object
 
 //creating allEnemies array to insert 9 objects in that array used in enemy render prototype.
 let allEnemies = [vehicleOne, vehicleTwo, vehicleThree, vehicleFour, vehicleFive, vehicleSix, vehicleSeven, vehicleEight, vehicleNine];

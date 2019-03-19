@@ -5,7 +5,12 @@
 # Table of contents
 
 <ul>
+  <li>Getting Started</li>
+  <li>Prerequisites</li>
+  <li>Up and Running</li>
+  <li>Directory Structure<li>
   <li>Project Description</li>
+  <li>Code Overview</li>
   <li>General information</li>
   <li>Screenshots</li>
   <li>Build In</li>
@@ -17,11 +22,130 @@
   <li>License</li>
 </ul>
 
+# Getting Started
+
+These instructions will get you a copy of the project up and running on your local machine for development purposes.
+Follow the Prerequisites need to run the code for furthur research.
+
+# Prerequisites
+
+<b>Softwares Needed</b>
+
+<b>Download and Install VISUAL STUDIO CODE</b>
+<br>
+https://code.visualstudio.com/download
+
+<br>
+
+<b><i>Need Browser to run or debug our code</i></b>
+<ul>
+  <li>Download and Install GOOGLE CHROME Browser</li>
+</ul>
+
+<b><i>Knowledge</i></b>
+<ul>
+  <li>Knowledge in HTML, CSS, JAVASCRIPT</li>
+  <li>Knowledge in OOPS in Javascript.</li>
+</ul>
+
+<b><i>Knowledge Base</i></b>
+<ul>
+  <li>HTML TUTORIAL - https://www.w3schools.com/html/</li>
+  <li>CSS TUTORIAL - https://www.w3schools.com/css/</li>
+  <li>JS TUTORIAL - https://developer.mozilla.org/bm/docs/Web/JavaScript</li>  
+</ul>
+
+
+# Up and Running
+
+<p><b>Run the Game</b></p>
+<p><b>After Downloading Google chrome</b> --> <i>right click on index.html file in classic arcade game folder</i> -> <i>Open with option</i> -> <i>select Google Chrome</i> -> <i>Play the game in the browser.</i></p>  
+
+<p><b>View project Files</b></p>
+<p><b>After Downloading Visual Studio Code</b> --> <i>Open Visual Studio Code software</i> -> <i>Open Folder option</i> -> <i>select Classic Arcade Game folder</i> -> <i>set up your workspace.</i></p>  
+
+
+# Directory structure
+
+<p>Classic Arcade Game project folder contains following sub-folders</p>
+
+<b><i>css</i></b>
+<ul>
+  <li>css folder contains style.css custom stylesheet written in css.</li>
+  <li>Bootstrap - Responsive front-end Framework used.</li>
+    https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css
+  <li>Fontawesome.css is used in this project</li>
+    https://use.fontawesome.com/releases/v5.7.2/css/all.css
+</ul>
+
+<b><i>img</i></b>
+<p>Contains set of image files used in the project.</p>
+
+<b><i>js</i></b>
+<ul>
+  <li>resources.js - image loading utility.</li>
+  <li>engine.js - Game loop Engine.</li>
+  <li>app.js - custom javascript code written in js.</li>
+</ul>
+
 # Project Description
   
 This Classic Arcade Game is based on player and vehicle objects. Vehicles are moving at random speed on the road. 
 The player needs to cross the road without colliding with number of vehicles. He losses it's life when the player 
 collide with the vehicles.Player will win when he successfully crossed the road.
+
+
+# Code Overview
+
+<b>In this project we use <i>Canvas</i> to build the game.
+<p>The canvas element is part of HTML5 and allows for dynamic, scriptable rendering of 2D shapes and bitmap images.</p>
+
+<b><i>Open app.js file and proceed furthur</i></b>
+
+<b>This project contains two classes</b>
+<ul>
+  <li>Enemy class</li>
+  <li>Player class</li>
+</ul>
+
+<b><i>Methods in Enemy Class</i></b>
+<ul>
+  <li>update() method is used to update vehicle position and speed.</li>
+  <li>render() method is used to render vehicle inside the canvas.</li>
+</ul>
+
+<b><i>Method in Player Class</i></b>
+<ul>
+  <li>update() method is used for player selection.</li>
+  <li>render() method is used to render player.</li>
+  <li>handleInput() method is used to handle keyboard actions taken by the player.</li>
+  <li>checkCollisions() method is used to check Enemy - player Collision.</li>
+  <li>scoreBoard(), scoreCalculation() method is used to calculate score.</li>
+  <li>startingPosition() method is used to reset the player position when collision occurs.</li> 
+  <li>finalDisplay() method is used to display final score.</li>  
+</ul>
+
+
+<b><i>Global Methods</i></b>
+<ul>
+  <li>reLoad() method is used to reload the entire game.</li>
+</ul>
+
+
+<b><i>Event Listeners</i></b>
+<ul>
+  <li>'Keyup' listener is used for player movement.</li>
+  <li>'click' listener is used to select player to play the game.</li>
+</ul>
+
+
+<b><i>Game Control : keyBoard</i></b>
+<ul>
+  <li>&larr;&uarr;&rarr;&darr; Arrow keys are used to Move the player.</li>
+  <li>'Keyup' EventListener and handleInput() method in app.js file are used for player Movemment.</li>
+</ul>
+
+
 
 # General information
  

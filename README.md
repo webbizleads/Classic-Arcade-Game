@@ -8,7 +8,7 @@
   <li>Getting Started</li>
   <li>Prerequisites</li>
   <li>Up and Running</li>
-  <li>Directory Structure<li>
+  <li>Directory Structure</li>
   <li>Project Description</li>
   <li>Code Overview</li>
   <li>General information</li>
@@ -79,7 +79,7 @@ https://code.visualstudio.com/download
 </ul>
 
 <b><i>img</i></b>
-<p>Contains set of image files used in the project.</p>
+<p><ul><li>Contains set of image files used in the project.</li></ul></p>
 
 <b><i>js</i></b>
 <ul>
@@ -114,7 +114,7 @@ collide with the vehicles.Player will win when he successfully crossed the road.
   <li>render() method is used to render vehicle inside the canvas.</li>
 </ul>
 
-<b><i>Method in Player Class</i></b>
+<b><i>Methods in Player Class</i></b>
 <ul>
   <li>update() method is used for player selection.</li>
   <li>render() method is used to render player.</li>
@@ -126,7 +126,7 @@ collide with the vehicles.Player will win when he successfully crossed the road.
 </ul>
 
 
-<b><i>Global Methods</i></b>
+<b><i>Global Method</i></b>
 <ul>
   <li>reLoad() method is used to reload the entire game.</li>
 </ul>

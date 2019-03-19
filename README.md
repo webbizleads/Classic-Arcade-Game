@@ -69,7 +69,7 @@ https://code.visualstudio.com/download
 
 <p>Classic Arcade Game project folder contains following sub-folders</p>
 
-<b><i>css</i></b>
+<b><i>css/</i></b>
 <ul>
   <li>css folder contains style.css custom stylesheet written in css.</li>
   <li>Bootstrap - Responsive front-end Framework used.</li>
@@ -78,15 +78,20 @@ https://code.visualstudio.com/download
     https://use.fontawesome.com/releases/v5.7.2/css/all.css
 </ul>
 
-<b><i>img</i></b>
+<b><i>img/</i></b>
 <p><ul><li>Contains set of image files used in the project.</li></ul></p>
 
-<b><i>js</i></b>
+<b><i>js/</i></b>
 <ul>
   <li>resources.js - image loading utility.</li>
   <li>engine.js - Game loop Engine.</li>
   <li>app.js - custom javascript code written in js.</li>
 </ul>
+
+<b><i>html</i></b>
+<ul>
+  <li>index.html - contains HTML5 content.</li>
+</ul>  
 
 # Project Description
   

@@ -1,6 +1,6 @@
 # Project Title
 
-<strong>Classic Arcade Game</strong>
+<strong>Classic Arcade Game -</strong> <i>Cross the Roads</i>
 
 # Table of contents
 

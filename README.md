@@ -86,6 +86,12 @@ https://code.visualstudio.com/download
   <li>resources.js - image loading utility.</li>
   <li>engine.js - Game loop Engine.</li>
   <li>app.js - custom javascript code written in js.</li>
+  <li>sound.js - custom javascript code for audio written in js.</li>
+</ul>
+
+<b><i>audio/</i></b>
+<ul>
+  <li>Contains audio file used in the project.</li>
 </ul>
 
 <b><i>html</i></b>
@@ -149,6 +155,9 @@ collide with the vehicles.Player will win when he successfully crossed the road.
   <li>&larr;&uarr;&rarr;&darr; Arrow keys are used to Move the player.</li>
   <li>'Keyup' EventListener and handleInput() method in app.js file are used for player Movemment.</li>
 </ul>
+
+<b><i>Open sound.js file</i></b>
+<p><i>It runs music theme for the game.</i></p>
 
 
 

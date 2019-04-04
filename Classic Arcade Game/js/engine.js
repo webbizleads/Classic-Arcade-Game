@@ -24,9 +24,10 @@ var Engine = (function(global) {
         ctx = canvas.getContext('2d'),
         lastTime;
 
-    canvas.width = 505;
-    canvas.height = 606;
-    doc.body.appendChild(canvas);
+        canvas.width = 505;
+        canvas.height = 606;
+        doc.body.appendChild(canvas);
+
 
     /* This function serves as the kickoff point for the game loop itself
      * and handles properly calling the update and render methods.
@@ -64,6 +65,7 @@ var Engine = (function(global) {
      */
     function init() {
         reset();
+
         lastTime = Date.now();
         main();
     }
@@ -106,6 +108,9 @@ var Engine = (function(global) {
         /* This array holds the relative URL to the image used
          * for that particular row of the game level.
          */
+        //music starts player selected.
+        myMusic.play();
+
         var rowImages = [
                 'img/side-way.jpg',   // Top row is water
                 'img/road-block.png',   // Row 1 of 3 of road
